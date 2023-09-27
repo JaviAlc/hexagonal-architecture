@@ -1,8 +1,8 @@
-package io.github.javialc.java.hexagonalarchitecture.domain.ports.outbound;
+package io.github.javialc.java.hexagonalarchitecture.domain.services;
 
 import io.github.javialc.java.hexagonalarchitecture.domain.models.FavouriteCapsules;
 
-public interface FavouriteCapsulesServicePort {
+public interface FavouriteCapsulesService {
 
     void addFavouriteCapsule(String capsuleId);
 

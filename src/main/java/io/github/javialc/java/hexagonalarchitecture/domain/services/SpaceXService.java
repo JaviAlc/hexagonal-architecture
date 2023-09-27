@@ -1,10 +1,10 @@
-package io.github.javialc.java.hexagonalarchitecture.domain.ports.outbound;
+package io.github.javialc.java.hexagonalarchitecture.domain.services;
 
 import java.util.List;
 
 import io.github.javialc.java.hexagonalarchitecture.domain.models.Capsule;
 
-public interface SpaceXServicePort {
+public interface SpaceXService {
     
     List<Capsule> getCapsules();
 
