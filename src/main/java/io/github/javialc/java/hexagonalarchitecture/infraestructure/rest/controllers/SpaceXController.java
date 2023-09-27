@@ -13,12 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * This class represents the REST controller for SpaceX API.
+ * It implements the SpaceXApi interface and provides endpoints for retrieving and managing capsules.
+ */
 @RestController
 @AllArgsConstructor
 public class SpaceXController implements SpaceXApi {
     
     private final SpaceXService spaceXService;
-    private final FavouriteCapsulesService favouriteCapsuleServicePort;
+    private final FavouriteCapsulesService favouriteCapsuleService;
     private final SpaceXDtoMapper spaceXDtoMapper;
     
     @Override
@@ -35,7 +39,7 @@ public class SpaceXController implements SpaceXApi {
 
     @Override
     public CapsulesDto getFavouriteCapsules() {
-        FavouriteCapsules favouriteCapsules = favouriteCapsuleServicePort.getFavouriteCapsules();
+        FavouriteCapsules favouriteCapsules = favouriteCapsuleService.getFavouriteCapsules();
         return CapsulesDto.builder()
                 .capsules(spaceXDtoMapper.asCapsulesDto(favouriteCapsules.getCapsules()))
                 .build();
@@ -43,12 +47,12 @@ public class SpaceXController implements SpaceXApi {
 
     @Override
     public void addFavouriteCapsule(final FavouriteCapsuleRequest request) {
-        favouriteCapsuleServicePort.addFavouriteCapsule(request.getCapsuleId());
+        favouriteCapsuleService.addFavouriteCapsule(request.getCapsuleId());
     }
 
     @Override
     public void removeFavouriteCapsule(String id) {
-        favouriteCapsuleServicePort.removeFavouriteCapsule(id);
+        favouriteCapsuleService.removeFavouriteCapsule(id);
 
     }
 }
