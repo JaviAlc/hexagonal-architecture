@@ -21,6 +21,8 @@ like tests, clean code and modules
   * **Rest:** Configuration and definition of API rest
   * **SpaceXApi:** Configuration and definition of Client Rest to connect with SpaceX API
 
+![Hexagonal Architecture Diagram](assets/Diagram.png)
+
 
 ## Dependencies
 
