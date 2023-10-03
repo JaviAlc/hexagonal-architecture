@@ -8,6 +8,7 @@ import io.github.javialc.java.hexagonalarchitecture.infraestructure.rest.dtos.Ca
 import io.github.javialc.java.hexagonalarchitecture.infraestructure.rest.dtos.CapsulesDto;
 import io.github.javialc.java.hexagonalarchitecture.infraestructure.rest.dtos.FavouriteCapsuleRequest;
 import io.github.javialc.java.hexagonalarchitecture.infraestructure.rest.mappers.SpaceXDtoMapper;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
 

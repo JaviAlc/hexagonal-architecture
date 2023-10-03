@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>io.github.javialc.java</groupId>
 	<artifactId>hexagonal-archiectecture</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>hexagonal-archiectecture</name>
 	<description>Hexagonal Archicture demo for Alicante Tech Days</description>
 	<properties>
@@ -45,6 +45,11 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import io.github.javialc.java.hexagonalarchitecture.infraestructure.spacexapi.ErrorHandler;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +15,6 @@ import io.github.javialc.java.hexagonalarchitecture.infraestructure.spacexapi.mo
 import lombok.AllArgsConstructor;
 
 @Service
-@AllArgsConstructor
 public class SpaceXClient {
     
 
@@ -24,14 +24,15 @@ public class SpaceXClient {
 
     private final RestTemplate restTemplate = new RestTemplate();
 
+    public SpaceXClient() {
+        restTemplate.setErrorHandler(new ErrorHandler());
+        
+    }
+
     public SpaceXCapsule retrieveCapsule(String id) {
         Map<String,Object> params = new HashMap<>();
         params.put("id", id);
-
         ResponseEntity<SpaceXCapsule> response = restTemplate.getForEntity(CAPSULE_URL, SpaceXCapsule.class, params);
-        if (response.getStatusCode().isError()) {
-            throw new RuntimeException("Error retrieving capsule");
-        }
         return response.getBody();
     }
 
@@ -40,9 +41,6 @@ public class SpaceXClient {
         ResponseEntity<List<SpaceXCapsule>> response = restTemplate.exchange(
             CAPSULES_URL,HttpMethod.GET,null, new ParameterizedTypeReference<>() {
                 });
-        if (response.getStatusCode().isError()) {
-            throw new RuntimeException("Error retrieving capsules");
-        }
         return response.getBody();
     }
 
